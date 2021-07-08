@@ -34,7 +34,10 @@ public abstract class ExcelConverter {
         this.toExcel(filePath , sheetName, false);
     }
     public  void toExcel(String filePath , String sheetName , boolean foreNewFile) throws IOException, InvalidFormatException {
-        Files.createDirectories(this.getFileDir(filePath));
+        Path path = this.getFileDir(filePath);
+        if(path != null)
+            Files.createDirectories(this.getFileDir(filePath));
+
         File file = new File(filePath);
 
         if(foreNewFile)
@@ -89,7 +92,11 @@ public abstract class ExcelConverter {
 
 
     protected Path getFileDir(String filePath){
-        return Path.of(filePath.substring(0, filePath.lastIndexOf(File.separator)));
+        int index = filePath.lastIndexOf(File.separator);
+        if(index >= 0)
+            return Path.of(filePath.substring(0, index));
+        else
+            return null;
     }
 
     protected double getAsDouble(String fieldName , JsonElement object){

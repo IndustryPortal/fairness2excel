@@ -100,7 +100,7 @@ public class Main {
         ontologyAcronymOpt.setRequired(true);
         ontologyAcronymOpt.setValueSeparator(',');
 
-        Option output = new Option("f", "output-file", true, "File output");
+        Option output = new Option("f", "output-file", true, "File output path");
         output.setRequired(false);
 
         options.addOption(portalInstanceNameOpt);
