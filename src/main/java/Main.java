@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Main {
 
-    public static final String SERVICE_URL = "http://services.stageportal.lirmm.fr/fairness/v2/";
+            public static final String SERVICE_URL = "http://services.stageportal.lirmm.fr/fairness/v2/";
 
     public static void main(String[] args) {
 
